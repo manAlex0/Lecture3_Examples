@@ -156,9 +156,27 @@ void SelectionSort(int[] array)
     }
 }
 
+// Сделать наоборот, от минимального в максимальный
+void SelectionSort2(int[] array)
+{
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        int maxPosition = i;
+
+        for (int j = i + 1; j < array.Length; j++)
+        {
+            if (array[j] > array[maxPosition]) maxPosition = j;
+        }
+
+        int temporary = array[i];
+        array[i] = array[maxPosition];
+        array[maxPosition] = temporary;
+    }
+}
+
 PrintArray(arr);
 SelectionSort(arr);
 
 PrintArray(arr);
-
-// Сделать наоборот, от минимального в максимальный
+SelectionSort2(arr);
+PrintArray(arr);
